@@ -36,11 +36,19 @@ reports only `propext`, `Classical.choice` and `Quot.sound`.
 | `exists_leakCode`, `leak_achievability` | Two-level condensate codes `(1−δ)|u;L₀⟩⟨u;L₀| + δ|u;L'⟩⟨u;L'|` and their second-order achievability |
 | `leak_second_order_exact` | Leakage `δ ∈ [0,1)`, `ε = (1−δ)Φ(q)`, `q < 0`: the same two-sided statement, i.e. coefficient `√V_occ · Φ⁻¹(ε/(1−δ))` |
 
+## Second-order asymptotics with `O(log n)` remainder (`QIQCOP/Final.lean`)
+
+| Theorem | Statement |
+|---|---|
+| `binomBE` (`BerryEsseen.lean`, `BE/`) | Berry–Esseen for the binomial: `|Pr{Bin(L,η) < t} − Φ((t−ηL)/√(Lη(1−η)))| ≤ C/√L` for all `L ≥ 1`, `t`; proved from scratch |
+| `second_order_asymptotics` | For `δ ∈ [0,1)`, `B ≥ 0`, any real `q`, `ε = (1−δ)Φ(q)`: for large `n` a code with leakage `≤ δ` and `log₂ M ≥ n g + q√V_occ√n − A log n` exists, and every code with leakage `≤ δ + B/√n` has `log₂ M ≤ n g + q√V_occ√n + A log n` |
+| `second_order_asymptotics_cutoff` | The same for codes with inputs in the `≤ ⌈nN_S⌉`-photon space (`δ = 0`) |
+
 Supporting files: `ProjectorBound.lean` (success `≤ (√(D/M) + √q)²`), `Counting.lean` (photon
 counting in the Heisenberg picture, binomial tail monotonicity, `dim = C(n+r,r)`),
 `StirlingUpper.lean` (`log₂ C(n+k,k) ≤ n g(x) + (k − n x) g'(x)`, threshold asymptotics).
-Not formalized: the `O(log n)` remainder (needs Berry–Esseen), input states with unbounded
-photon number, and the existence half for `ε ≥ (1−δ)/2`.
+Not formalized: input states with unbounded photon number, and the equivalence of the Kraus
+form with the beam-splitter definition.
 
 ## Modeling choice (the one place physics enters)
 
