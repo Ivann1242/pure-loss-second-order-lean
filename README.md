@@ -26,6 +26,22 @@ and its negation refutes Eq. (4). `Φ` is the standard normal CDF, defined throu
 The build has no `sorry`, `admit` or custom `axiom`. `#print axioms` on the main theorems
 reports only `propext`, `Classical.choice` and `Quot.sound`.
 
+## Converse and constant leakage (`QIQCOP/ConverseMain.lean`, `QIQCOP/LeakAch.lean`, `QIQCOP/LeakMain.lean`)
+
+| Theorem | Statement |
+|---|---|
+| `converse_finite` | Finite-blocklength converse: a code with leakage `≤ δ` above `L₀` photons and success `≥ 1−ε` has `M ≤ C(n+r,r) / (√(1−ε) − √((1−δ)·Pr{K>r} + δ))²`, `K ~ Bin(L₀, η)` |
+| `converse_second_order` | If `ε < (1−δ)Φ(z)`: for large `n`, every code with leakage `≤ δ` (inputs in the `≤ L'`-photon space, any `L'`) has `log₂ M ≤ n g(ηN_S) + (z√V_occ + τ)√n` |
+| `second_order_exact` | Strict cutoff, `ε = Φ(q)`, `q < 0`: for large `n` a code with `log₂ M ≥ n g + (q√V_occ − τ)√n` exists, and every code has `log₂ M ≤ n g + (q√V_occ + τ)√n` |
+| `exists_leakCode`, `leak_achievability` | Two-level condensate codes `(1−δ)|u;L₀⟩⟨u;L₀| + δ|u;L'⟩⟨u;L'|` and their second-order achievability |
+| `leak_second_order_exact` | Leakage `δ ∈ [0,1)`, `ε = (1−δ)Φ(q)`, `q < 0`: the same two-sided statement, i.e. coefficient `√V_occ · Φ⁻¹(ε/(1−δ))` |
+
+Supporting files: `ProjectorBound.lean` (success `≤ (√(D/M) + √q)²`), `Counting.lean` (photon
+counting in the Heisenberg picture, binomial tail monotonicity, `dim = C(n+r,r)`),
+`StirlingUpper.lean` (`log₂ C(n+k,k) ≤ n g(x) + (k − n x) g'(x)`, threshold asymptotics).
+Not formalized: the `O(log n)` remainder (needs Berry–Esseen), input states with unbounded
+photon number, and the existence half for `ε ≥ (1−δ)/2`.
+
 ## Modeling choice (the one place physics enters)
 
 `lossChannel` (`QIQCOP/Fock.lean`) is the `n`-mode pure-loss channel `𝒩_η^{⊗n}` in its standard
