@@ -44,6 +44,15 @@ reports only `propext`, `Classical.choice` and `Quot.sound`.
 | `second_order_asymptotics` | For `δ ∈ [0,1)`, `B ≥ 0`, any real `q`, `ε = (1−δ)Φ(q)`: for large `n` a code with leakage `≤ δ` and `log₂ M ≥ n g + q√V_occ√n − A log n` exists, and every code with leakage `≤ δ + B/√n` has `log₂ M ≤ n g + q√V_occ√n + A log n` |
 | `second_order_asymptotics_cutoff` | The same for codes with inputs in the `≤ ⌈nN_S⌉`-photon space (`δ = 0`) |
 
+## General photon-number constraints (`QIQCOP/LawCode.lean`, `QIQCOP/MeanMain.lean`)
+
+| Theorem | Statement |
+|---|---|
+| `converse_law`, `exists_lawCode` | Finite-blocklength converse and achievability for an arbitrary photon-number law `P` of the input (codewords `∑_ℓ P(ℓ) |u;ℓ⟩⟨u;ℓ|`) |
+| `quantile_ach`, `quantile_conv` | Quantile principle: if `Pr{K_P < t} ≤ ε − γ` a code with law `P` and `M ≥ γ D_{n,t}/e − 1` exists; if `Pr{K_P ≤ r} ≥ ε + γ` every code with law `P` has `M ≤ 4γ⁻² C(n+r,r)` |
+| `binomGT_le_linear` (`Majorant.lean`) | Linear majorant: `Pr{Bin(ℓ,η) > r} ≤ ℓ/λ_r`, `λ_r = (r + √((1−κ) log r)·√((1−η) r))/η`, for all `ℓ` and large `r` |
+| `mean_second_order` | Mean photon-number constraint `≤ n N_S`: for every `κ ∈ (0,1)` and large `n`, a code with `log₂ M ≥ n g(x_ε) − √((1+κ) V_ε n ln n)` exists and every code has `log₂ M ≤ n g(x_ε) − √((1−κ) V_ε n ln n)`, where `x_ε = ηN_S/(1−ε)`, `V_ε = (1−η) x_ε g'(x_ε)²` |
+
 Supporting files: `ProjectorBound.lean` (success `≤ (√(D/M) + √q)²`), `Counting.lean` (photon
 counting in the Heisenberg picture, binomial tail monotonicity, `dim = C(n+r,r)`),
 `StirlingUpper.lean` (`log₂ C(n+k,k) ≤ n g(x) + (k − n x) g'(x)`, threshold asymptotics).

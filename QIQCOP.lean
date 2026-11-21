@@ -26,3 +26,9 @@ import QIQCOP.LogConv
 import QIQCOP.LogAch
 import QIQCOP.LogMain
 import QIQCOP.Final
+import QIQCOP.LawCode
+import QIQCOP.Majorant
+import QIQCOP.StirlingWide
+import QIQCOP.MeanConv
+import QIQCOP.MeanAch
+import QIQCOP.MeanMain
