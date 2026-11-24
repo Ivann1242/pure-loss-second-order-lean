@@ -32,3 +32,11 @@ import QIQCOP.StirlingWide
 import QIQCOP.MeanConv
 import QIQCOP.MeanAch
 import QIQCOP.MeanMain
+import QIQCOP.MajorantSharp
+import QIQCOP.MeanSharp
+import QIQCOP.BeamSplitter
+import QIQCOP.Unbounded
+import QIQCOP.UnboundedCode
+import QIQCOP.UnboundedConverse
+import QIQCOP.Coherent
+import QIQCOP.Embed
